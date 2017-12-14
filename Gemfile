@@ -59,6 +59,9 @@ gem 'devise-i18n'
 #FriendlyId is the “Swiss Army bulldozer” of slugging and permalink plugins for ActiveRecord.
 gem 'friendly_id', '~> 5.1.0'
 
+#Fontawesome
+gem "font-awesome-rails"
+
 source 'https://rails-assets.org' do
   #Bootstrap notify
   gem 'rails-assets-bootstrap.growl'

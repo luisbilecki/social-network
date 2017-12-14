@@ -13,6 +13,8 @@
 
 # Ignore all logfiles and tempfiles.
 /public/system
+/public/templates/
+/public/templates/*
 /log/*
 !/log/.keep
 /tmp

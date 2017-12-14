@@ -1,0 +1,73 @@
+<header>
+    <div class="container">
+      <img src="img/logo.png" class="logo" alt="">
+
+      <% if user_signed_in? %>
+
+        <div class="row text-right">
+          <div class="row">Welcome!, <%= current_user.name %></div>
+          <div class="row">
+            <span class="glyphicon glyphicon-log-out"></span> <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "logout" %>
+          </div>
+        </div>
+
+      <% else %>
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-inline"}) do |f| %>
+            <div class="form-group">
+              <%= f.label :email, class: "sr-only" %>
+              <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Enter Email" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password, class: "sr-only" %>
+              <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
+            </div>
+
+
+            <%= f.submit "Sign in", class: "btn btn-default" %>
+
+            <br>
+
+            <div class="checkbox">
+              <label>
+                <%= f.check_box :remember_me %> Remember me
+              </label>
+            </div>
+        <% end %>
+
+      <% end %>
+
+    </div>
+
+  </header>
+
+
+<nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><%= link_to "Home", root_path %></li>
+
+            <% if user_signed_in? %>
+              <li><a href="members.html">Members</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="groups.html">Groups</a></li>
+              <li><a href="photos.html">Photos</a></li>
+              <li><a href="profile.html">Profile</a></li>
+            <% else %>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <% end %>
+
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>

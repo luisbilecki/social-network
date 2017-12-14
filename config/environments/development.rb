@@ -51,4 +51,24 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  #Better Errors Config
+  BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
+  config.consider_all_requests_local = true
+
+  #WebConsole Rails
+  config.web_console.whitelisted_ips = ENV['TRUSTED_IP']
+
+  #Devise - Email
+  config.action_mailer.default_url_options = { :host =>'localhost', :port => 3000}
+
+  #Foreman - Fix
+  $stdout.sync = true
+
+  # Less rails server restart YEAH
+  config.reload_classes_only_on_change = false
+
+  # Devise options
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
 end
