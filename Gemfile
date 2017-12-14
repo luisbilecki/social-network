@@ -33,12 +33,51 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+#GEMS Social Network
+gem 'rails-i18n'
+
+#JQuery UI Rails
+gem 'jquery-ui-rails'
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps
+gem 'kaminari'
+gem 'kaminari-i18n'
+
+#Manage Procfile-based applications
+gem 'foreman'
+
+#Flexible authentication solution for Rails with Warden
+gem 'devise'
+
+#Translations for the devise gem
+gem 'devise-i18n'
+
+#FriendlyId is the “Swiss Army bulldozer” of slugging and permalink plugins for ActiveRecord.
+gem 'friendly_id', '~> 5.1.0'
+
+source 'https://rails-assets.org' do
+  #Bootstrap notify
+  gem 'rails-assets-bootstrap.growl'
+  #Bootstrap
+  gem 'rails-assets-bootstrap'
+  #Bootbox
+  gem 'rails-assets-bootbox'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
+  #Better error page for Rack apps
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :development do
@@ -48,6 +87,16 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  #A library for generating fake data such as names, addresses, and phone numbers.
+  gem 'faker'
+
+  #DoctorIpsum
+  gem 'doctor_ipsum'
+
+  #O Lero-lero Generator é uma ferramenta capaz de gerar frases que 'falam'
+  # muita coisa mas que não tem conteúdo algum.
+  gem 'lerolero_generator'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
