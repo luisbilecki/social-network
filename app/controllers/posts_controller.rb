@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: [:edit, :update]
+  before_action :set_post, only: [:edit, :update, :destroy]
 
   def index
   end
@@ -15,14 +15,30 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path, notice: t("messages.created_with", item:"post")
     else
-      redirect_to root_path, notice: t("messages.error_with", item:"post")
+      redirect_to root_path, alert: t("messages.error_with", item:"post")
     end
   end
 
   def edit
+    respond_to  do | format |
+      format.js
+    end
   end
 
   def update
+    if @post.update(post_params)
+      redirect_to users_index_path, notice: t("messages.update_with", item:"post")
+    else
+      redirect_to users_index_path, alert: t("messages.update_error", item:"post")
+    end
+  end
+
+  def destroy
+    if @post.destroy
+      redirect_to users_index_path, notice: t("messages.delete_with", item:"post")
+    else
+      redirect_to users_index_path, alert: t("messages.delete_error", item:"post")
+    end
   end
 
   private

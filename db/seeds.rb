@@ -12,7 +12,8 @@ user = User.new(
   name: "User",
   email: "member@member.com",
   password: "123456",
-  password_confirmation: "123456"
+  password_confirmation: "123456",
+  avatar: File.new(Rails.root.join('public','templates','pics', "#{Random.rand(11)}.jpg"), 'r')
 )
 
 user.save!

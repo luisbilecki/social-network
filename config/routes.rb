@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/index'
+
   #Devise
   devise_for :users, skip: [:sessions]
   as :user do
@@ -7,7 +9,8 @@ Rails.application.routes.draw do
   end
 
   get 'home', to: 'home#index'
-  resources :posts, only: [:edit, :update, :new, :create ]
+  resources :posts, except: [:show]
+  resources :users, only: [:edit, :update, :show]
 
   #Página inicial
   root 'home#index'

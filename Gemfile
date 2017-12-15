@@ -37,6 +37,9 @@ gem 'jbuilder', '~> 2.5'
 #GEMS Social Network
 gem 'rails-i18n'
 
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+
 #JQuery UI Rails
 gem 'jquery-ui-rails'
 

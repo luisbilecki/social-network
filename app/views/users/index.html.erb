@@ -1,0 +1,114 @@
+<section>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="btn-toolbar">
+            </div>
+            <div class="profile">
+              <div class="row">
+                <div class="pull-left">
+                  <h1 class="page-header"><%= @user.name %></h1>
+                </div>
+                <div class="pull-right">
+                  <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: "btn btn-default" do %>
+                    <i class="fa fa-pencil"></i>
+                  <% end %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <%= image_tag(@user.avatar.url(:medium), alt: @user.name, class: "img-thumbnail") %>
+                </div>
+                <div class="col-md-8">
+                  <ul>
+                    <li><strong>Name: </strong><%= @user.name %></li>
+                    <li><strong>Email: </strong><%= @user.email %></li>
+                    <li><strong>About</strong></li>
+                    <li><%= @user.about %></li>
+                  </ul>
+                </div>
+              </div><br><br>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h3 class="panel-title">Profile Wall</h3>
+                    </div>
+                    <div class="panel-body">
+                      <% @posts.each do |p| %>
+                        <div class="panel panel-default post">
+                          <div class="panel-body">
+                            <div class="text-left">
+                                <%= p.content %>
+                            </div>
+
+                            <div class="text-left postedat">
+                              <%= time_ago_in_words(p.updated_at) %>
+                            </div>
+                            <p class="text-left post-actions">
+                              <%= link_to "Edit", edit_post_path(p.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#myModal'} %>
+                              <%= link_to "Delete", post_path(p.id), method: :delete, data: {confirm: t('messages.confirm')} %>
+                            </p>
+                          </div>
+                        </div>
+                      <% end %>
+
+                      <!-- posts -->
+                      <%= paginate @posts %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-default friends">
+              <div class="panel-heading">
+                <h3 class="panel-title">Following</h3>
+              </div>
+              <div class="panel-body">
+                <ul>
+                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
+                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
+                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
+                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
+                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
+                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
+                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
+                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
+                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
+                </ul>
+                <div class="clearfix"></div>
+                <a class="btn btn-primary" href="#">View All</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="panel panel-default friends">
+              <div class="panel-heading">
+                <h3 class="panel-title">Followers</h3>
+              </div>
+              <div class="panel-body">
+                <ul>
+                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
+                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
+                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
+                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
+                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
+                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
+                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
+                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
+                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
+                </ul>
+                <div class="clearfix"></div>
+                <a class="btn btn-primary" href="#">View All</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+<div id="edit-modal" class="modal fade" role="dialog"></div>

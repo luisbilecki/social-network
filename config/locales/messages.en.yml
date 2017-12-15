@@ -2,3 +2,8 @@ en:
   messages:
     created_with: "The %{item} was inserted successfully!"
     error_with: "An error has occurred while inserting a new %{item}"
+    delete_with: "Your %{item} has been deleted"
+    update_with: "Your %{item} has been updated"
+    delete_error: "An error has occurred while deleting a %{item}"
+    update_error: "An error has occurred while updating a %{item}"
+    confirm: "Are you sure?"

@@ -194,3 +194,9 @@ header .logo{
 .navbar-nav{
   margin-left:-15px;
 }
+
+
+.postedat{
+  font-size:12;
+  color:#90949c;
+}

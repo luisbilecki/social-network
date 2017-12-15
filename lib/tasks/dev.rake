@@ -24,7 +24,9 @@ namespace :dev do
       User.create!(name: Faker::Name.name,
                     email: Faker::Internet.email,
                     password: "123456",
-                    password_confirmation: "123456")
+                    password_confirmation: "123456",
+                    avatar: File.new(Rails.root.join('public','templates','pics', "#{Random.rand(11)}.jpg"), 'r')
+                  )
     end
 
     puts "Users created successfully!"
