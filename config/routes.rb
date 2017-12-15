@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   get 'home', to: 'home#index'
+  resources :posts, only: [:edit, :update, :new, :create ]
 
   #Página inicial
   root 'home#index'

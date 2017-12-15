@@ -18,6 +18,7 @@
 
 body{
   font-family: 'Roboto', sans-serif;
+  margin:0px;
 }
 
 header{
@@ -153,7 +154,7 @@ header .logo{
   width:100%;
 }
 
-footer{
+.footer{
   background: #f4f4f4;
   height: 90px;
   color: #04519b;
@@ -188,4 +189,8 @@ footer{
   color: #fff;
   text-decoration: none;
 
+}
+
+.navbar-nav{
+  margin-left:-15px;
 }

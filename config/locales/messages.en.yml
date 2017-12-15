@@ -1,0 +1,4 @@
+en:
+  messages:
+    created_with: "The %{item} was inserted successfully!"
+    error_with: "An error has occurred while inserting a new %{item}"

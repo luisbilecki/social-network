@@ -15,4 +15,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require bootstrap.growl
+//= require bootbox
 //= require_tree .
