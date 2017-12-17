@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   def index
     @user = current_user
     @posts = Post.by_user(current_user, params[:page])
+    @following = current_user.following.order(:created_at).limit(6)
+    @followers = Follower.get_followers(current_user.id).order(:created_at).limit(6)
   end
 
   def search
@@ -17,6 +19,14 @@ class UsersController < ApplicationController
 
   def show
      @user = User.friendly.find(params[:id])
+  end
+
+  def showfollowing
+    @following = current_user.following
+  end
+
+  def showfollowers
+    @followers = Follower.get_followers(current_user.id)
   end
 
   private

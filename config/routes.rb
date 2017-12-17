@@ -11,8 +11,10 @@ Rails.application.routes.draw do
 
   get 'home', to: 'home#index'
   get 'search', to: 'users#search'
-  get '/follow/:id', to: 'followers#follow', as: 'follow'
-  get '/unfollow/:id', to: 'followers#unfollow', as: 'unfollow'
+  get '/users/showfollowing', to: 'users#showfollowing', as: 'showfollowing'
+  get '/users/showfollowers', to: 'users#showfollowers', as: 'showfollowers'
+  get '/users/follow/:id', to: 'followers#follow', as: 'follow'
+  get '/users/unfollow/:id', to: 'followers#unfollow', as: 'unfollow'
 
   resources :posts, except: [:show]
   resources :users, only: [:update, :show]

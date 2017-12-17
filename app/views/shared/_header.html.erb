@@ -1,7 +1,5 @@
 <header>
     <div class="container">
-      <img src="img/logo.png" class="logo" alt="">
-
       <% if user_signed_in? %>
 
           <div class="pull-right">Welcome!, <%= current_user.name %></div><br>
@@ -57,7 +55,8 @@
 
             <% if user_signed_in? %>
               <li><%= link_to "My Profile", users_index_path %></li>
-              <li><a href="#">Followers</a></li>
+              <li><%= link_to "Following", showfollowing_path %></li>
+              <li><%= link_to "Followers", showfollowers_path %></li>
               <li><a href="#">Events</a></li>
               <li><a href="#">About</a></li>
 

@@ -1,0 +1,50 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="members">
+          <h1 class="page-header">My following list</h1>
+            <div class="row member-row">
+              <% if @following.blank? %>
+                <div class="text-center">
+                  Sorry, no one is following you.
+                </div>
+            </div>
+            <% else %>
+              <% @following.each do |u| %>
+                <div class="row member-row">
+                  <div class="col-md-3">
+                      <%= image_tag(u.follower.avatar.url(:medium), alt: u.follower.name, class: "img-thumbnail") %>
+                      <div class="text-center">
+                        <%= u.follower.name %>
+                      </div>
+                  </div>
+                  <div class="col-md-3"></div>
+
+                  <div class="col-md-3">
+                      <p>
+                        <%= link_to unfollow_path(current_user.following.where(:follower_id => u.follower.id).ids), class: "btn btn-danger btn-block" do %>
+                          <i class="fa fa-users"></i>
+                           <span>Unfollow</span>
+                        <% end %>
+                      </p>
+                  </div>
+
+                  <div class="col-md-3">
+                      <p>
+                        <%= link_to user_path(u.follower), class: "btn btn-primary btn-block" do %>
+                          <i class="fa fa-edit"></i>
+                           <span>View Profile</span>
+                        <% end %>
+                      </p>
+                  </div>
+                </div>
+              <% end %>
+
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

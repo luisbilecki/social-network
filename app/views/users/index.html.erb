@@ -69,18 +69,16 @@
               </div>
               <div class="panel-body">
                 <ul>
-                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
-                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
-                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
-                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
-                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
-                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
-                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
-                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
-                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
+                  <% @following.each do |fol| %>
+                    <li>
+                      <%= link_to user_path(fol.follower), class: "thumbnail" do %>
+                        <%= image_tag(fol.follower.avatar.url(:medium)) %>
+                      <% end %>
+                    </li>
+                  <% end %>
                 </ul>
                 <div class="clearfix"></div>
-                <a class="btn btn-primary" href="#">View All</a>
+                <%= link_to "View All", showfollowing_path, class: "btn btn-primary" %>
               </div>
             </div>
           </div>
@@ -92,18 +90,16 @@
               </div>
               <div class="panel-body">
                 <ul>
-                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
-                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
-                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
-                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
-                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
-                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
-                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
-                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
-                  <li><a href="profile.html" class="thumbnail"><img src="images/user.png" alt=""></a></li>
+                  <% @followers.each do |fow| %>
+                    <li>
+                      <%= link_to user_path(fow.current), class: "thumbnail" do %>
+                        <%= image_tag(fow.current.avatar.url(:medium)) %>
+                      <% end %>
+                    </li>
+                  <% end %>
                 </ul>
                 <div class="clearfix"></div>
-                <a class="btn btn-primary" href="#">View All</a>
+                <%= link_to "View All", showfollowers_path, class: "btn btn-primary" %>
               </div>
             </div>
           </div>

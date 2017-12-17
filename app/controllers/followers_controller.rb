@@ -22,5 +22,4 @@ class FollowersController < ApplicationController
         redirect_to root_path, error: "Error during unfollow process"
     end
   end
-
 end
