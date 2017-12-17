@@ -20,6 +20,7 @@ class HomeController < ApplicationController
 
   def index
     @user = User.new
+    @following = current_user.following.order(:created_at).limit(6)
   end
 
 

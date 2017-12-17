@@ -1,0 +1,18 @@
+<div class="panel panel-default friends">
+  <div class="panel-heading">
+    <h3 class="panel-title">Following</h3>
+  </div>
+  <div class="panel-body">
+    <ul>
+      <% @following.each do |fol| %>
+        <li>
+          <%= link_to user_path(fol.follower), class: "thumbnail" do %>
+            <%= image_tag(fol.follower.avatar.url(:medium)) %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+    <div class="clearfix"></div>
+    <%= link_to "View All", showfollowing_path, class: "btn btn-primary" %>
+  </div>
+</div>
