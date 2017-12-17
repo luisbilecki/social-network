@@ -1,0 +1,9 @@
+en:
+  activerecord:
+    attributes:
+      user:
+        name: Name
+        avatar: Profile photo
+        remove_avatar: Remove profile photo
+
+

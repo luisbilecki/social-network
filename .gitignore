@@ -14,6 +14,7 @@
 # Ignore all logfiles and tempfiles.
 /public/system
 /public/templates/
+/public/uploads/
 /public/templates/*
 /log/*
 !/log/.keep

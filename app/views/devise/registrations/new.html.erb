@@ -24,6 +24,10 @@
               <%= f.email_field :email, class: 'form-control', placeholder: 'email@example.com' %>
             </div>
             <div class="form-group">
+              <%= f.label :about %>
+              <%= f.text_area :about, class: 'form-control', placeholder: 'Say something about yourself...' %>
+            </div>
+            <div class="form-group">
               <%= f.label :password %>
               <% if @minimum_password_length %>
                 <em>(<%= @minimum_password_length %> characters minimum)</em>

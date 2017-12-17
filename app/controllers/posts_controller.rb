@@ -22,6 +22,7 @@ class PostsController < ApplicationController
   def edit
     respond_to  do | format |
       format.js
+      format.html { head :no_content }
     end
   end
 

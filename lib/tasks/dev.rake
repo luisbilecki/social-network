@@ -4,13 +4,13 @@ namespace :dev do
 
     puts "Running setup development task ..."
 
-    puts "Dropping DB... #{%x(rake db:drop)}"
+    puts "Dropping DB... #{%x(rails db:drop)}"
 
-    puts "Creating DB... #{%x(rake db:create)}"
-    puts %x(rake db:migrate)
-    puts %x(rake db:seed)
-    puts %x(rake dev:generate_users)
-    puts %x(rake dev:generate_posts)
+    puts "Creating DB... #{%x(rails db:create)}"
+    puts %x(rails db:migrate)
+    puts %x(rails db:seed)
+    puts %x(rails dev:generate_users)
+    puts %x(rails dev:generate_posts)
 
     puts "Task completed successfully!"
 

@@ -2,18 +2,19 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8">
-            <div class="btn-toolbar">
-            </div>
             <div class="profile">
               <div class="row">
+
                 <div class="pull-left">
                   <h1 class="page-header"><%= @user.name %></h1>
                 </div>
+
                 <div class="pull-right">
-                  <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: "btn btn-default" do %>
-                    <i class="fa fa-pencil"></i>
-                  <% end %>
+                  <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-default" %>
                 </div>
+
+                <div class="clearfix"></div>
+
               </div>
               <div class="row">
                 <div class="col-md-4">
