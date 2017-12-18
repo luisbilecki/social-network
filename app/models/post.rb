@@ -4,6 +4,9 @@ class Post < ApplicationRecord
   #Validations
   validates :content, presence: true
 
+  #Acts as votable - gem
+  acts_as_votable
+
   #Relationships
   has_many :comments
 

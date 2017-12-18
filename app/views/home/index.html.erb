@@ -31,7 +31,9 @@
                       <%= image_tag(p.user.avatar.url(:thumb), alt: @user.name) %>
                     <% end %>
                     <div class="text-center"><%= p.user.name %></div>
-                   <div class="likes text-center">7 Likes</div>
+                   <div class="likes text-center">
+                     <%= pluralize(p.get_likes.size,"Like") %>
+                   </div>
                  </div>
                  <div class="col-sm-10">
                    <div class="bubble">
@@ -40,7 +42,9 @@
                      </div>
                      <div class="pointer-border"></div>
                    </div>
-                   <p class="post-actions"> <a href="#">Like</a></p>
+                   <p class="post-actions">
+                    <%= link_to "Like", like_path(p), method: :put %>
+                   </p>
                    <br/>
                    <p style="color: #04519b;">Comments</p>
 
@@ -84,8 +88,12 @@
                      </div>
                      <div class="clearfix"></div>
                    </div>
-                  <%= render partial: "shared/comment", locals: {p: p} %>
                    <% end %>
+
+                   <% unless p.comments.blank? %>
+                      <%= render partial: "shared/comment", locals: {p: p} %>
+                   <% end %>
+
                  </div>
                </div>
                <br/>

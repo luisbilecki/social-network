@@ -42,6 +42,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def like
+    @post = Post.find(params[:id])
+    @post.like_by current_user
+    redirect_back(fallback_location: root_path)
+  end
+
   private
 
   def set_post

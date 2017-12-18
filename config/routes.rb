@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/users/showfollowers', to: 'users#showfollowers', as: 'showfollowers'
   get '/users/follow/:id', to: 'followers#follow', as: 'follow'
   get '/users/unfollow/:id', to: 'followers#unfollow', as: 'unfollow'
+  put 'like/:id', to: 'posts#like', as: 'like'
 
   resources :posts, except: [:show]
   resources :comments, except: [:show]

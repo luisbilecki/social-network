@@ -65,6 +65,8 @@ gem 'friendly_id', '~> 5.1.0'
 #Fontawesome
 gem "font-awesome-rails"
 
+gem 'acts_as_votable', '~> 0.11.1'
+
 source 'https://rails-assets.org' do
   #Bootstrap notify
   gem 'rails-assets-bootstrap.growl'

@@ -20,11 +20,14 @@ class HomeController < ApplicationController
 
   def index
     @user = User.new
-    following_list = current_user.following
-    @following =  following_list .order(:created_at).limit(6)
 
-    values =  following_list.pluck(:follower_id)
-    @posts = Post.subscribed(values, params[:page])
+    unless current_user.blank?
+      following_list = current_user.following
+      @following =  following_list .order(:created_at).limit(6)
+
+      values =  following_list.pluck(:follower_id)
+      @posts = Post.subscribed(values, params[:page])
+    end
   end
 
 
