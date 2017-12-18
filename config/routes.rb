@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :posts, except: [:show]
   resources :comments, except: [:show]
   resources :users, only: [:update, :show]
+  resources :events, except: [:show]
 
   #Página inicial
   root 'home#index'

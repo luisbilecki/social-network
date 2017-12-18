@@ -39,6 +39,11 @@
                    <div class="bubble">
                      <div class="pointer">
                        <p><%= p.content %></p>
+
+                       <p class="properties">
+                        <%= time_ago_in_words(p.updated_at) %>
+                       </p>
+
                      </div>
                      <div class="pointer-border"></div>
                    </div>

@@ -72,7 +72,9 @@
               <div class="panel-heading">
                 <h3 class="panel-title">Followers</h3>
               </div>
+
               <div class="panel-body">
+                <% unless @followers.blank? %>
                 <ul>
                   <% @followers.each do |fow| %>
                     <li>
@@ -84,7 +86,9 @@
                 </ul>
                 <div class="clearfix"></div>
                 <%= link_to "View All", showfollowers_path, class: "btn btn-primary" %>
+                <% end %>
               </div>
+
             </div>
           </div>
 
