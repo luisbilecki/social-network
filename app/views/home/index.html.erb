@@ -19,137 +19,79 @@
         </div>
         <div class="panel panel-default post">
           <div class="panel-body">
-             <div class="row">
-               <div class="col-sm-2">
-                 <a href="profile.html" class="post-avatar thumbnail"><img src="images/user.png" alt=""><div class="text-center">DevUser1</div></a>
-                 <div class="likes text-center">7 Likes</div>
-               </div>
-               <div class="col-sm-10">
-                 <div class="bubble">
-                   <div class="pointer">
-                     <p>Hey I was wondering if you wanted to go check out the football game later. I heard they are supposed to be really good!</p>
+             <% if @posts.blank? %>
+              <div class="row">
+                <p>You need to follow someone to see posts.</p>
+              </div>
+             <% else %>
+               <% @posts.each do |p| %>
+               <div class="row">
+                 <div class="col-sm-2">
+                    <%= link_to user_path(p.user), class: "post-avatar thumbnail" do %>
+                      <%= image_tag(p.user.avatar.url(:thumb), alt: @user.name) %>
+                    <% end %>
+                    <div class="text-center"><%= p.user.name %></div>
+                   <div class="likes text-center">7 Likes</div>
+                 </div>
+                 <div class="col-sm-10">
+                   <div class="bubble">
+                     <div class="pointer">
+                       <p><%= p.content %></p>
+                     </div>
+                     <div class="pointer-border"></div>
                    </div>
-                   <div class="pointer-border"></div>
-                 </div>
-                 <p class="post-actions"><a href="#">Comment</a> - <a href="#">Like</a> - <a href="#">Follow</a> - <a href="#">Share</a></p>
-                 <div class="comment-form">
-                   <form class="form-inline">
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="enter comment">
-                    </div>
-                    <button type="submit" class="btn btn-default">Add</button>
-                  </form>
-                 </div>
-                 <div class="clearfix"></div>
+                   <p class="post-actions"> <a href="#">Like</a></p>
+                   <br/>
+                   <p style="color: #04519b;">Comments</p>
 
-                 <div class="comments">
-                   <div class="comment">
-                     <a href="#" class="comment-avatar pull-left"><img src="images/user.png" alt=""></a>
-                     <div class="comment-text">
-                       <p>I am just going to paste in a paragraph, then we will add another clearfix.</p>
-                     </div>
-                   </div>
-                   <div class="clearfix"></div>
-                   <div class="comment">
-                     <a href="#" class="comment-avatar pull-left"><img src="images/user.png" alt=""></a>
-                     <div class="comment-text">
-                       <p>I am just going to paste in a paragraph, then we will add another clearfix.</p>
-                     </div>
-                   </div>
-                   <div class="clearfix"></div>
-                 </div>
-               </div>
-             </div>
-          </div>
-        </div>
-        <div class="panel panel-default post">
-          <div class="panel-body">
-             <div class="row">
-               <div class="col-sm-2">
-                 <a href="profile.html" class="post-avatar thumbnail"><img src="images/user.png" alt=""><div class="text-center">DevUser1</div></a>
-                 <div class="likes text-center">7 Likes</div>
-               </div>
-               <div class="col-sm-10">
-                 <div class="bubble">
-                   <div class="pointer">
-                     <p>Hey I was wondering if you wanted to go check out the football game later. I heard they are supposed to be really good!</p>
-                   </div>
-                   <div class="pointer-border"></div>
-                 </div>
-                 <p class="post-actions"><a href="#">Comment</a> - <a href="#">Like</a> - <a href="#">Follow</a> - <a href="#">Share</a></p>
-                 <div class="comment-form">
-                   <form class="form-inline">
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="enter comment">
-                    </div>
-                    <button type="submit" class="btn btn-default">Add</button>
-                  </form>
-                 </div>
-                 <div class="clearfix"></div>
+                   <% if p.comments.blank? %>
+                      <%= render partial: "shared/comment", locals: {p: p} %>
+                   <% end %>
 
-                 <div class="comments">
-                   <div class="comment">
-                     <a href="#" class="comment-avatar pull-left"><img src="images/user.png" alt=""></a>
-                     <div class="comment-text">
-                       <p>I am just going to paste in a paragraph, then we will add another clearfix.</p>
-                     </div>
-                   </div>
-                   <div class="clearfix"></div>
-                   <div class="comment">
-                     <a href="#" class="comment-avatar pull-left"><img src="images/user.png" alt=""></a>
-                     <div class="comment-text">
-                       <p>I am just going to paste in a paragraph, then we will add another clearfix.</p>
-                     </div>
-                   </div>
-                   <div class="clearfix"></div>
-                 </div>
-               </div>
-             </div>
-          </div>
-        </div>
-        <div class="panel panel-default post">
-          <div class="panel-body">
-             <div class="row">
-               <div class="col-sm-2">
-                 <a href="profile.html" class="post-avatar thumbnail"><img src="images/user.png" alt=""><div class="text-center">DevUser1</div></a>
-                 <div class="likes text-center">7 Likes</div>
-               </div>
-               <div class="col-sm-10">
-                 <div class="bubble">
-                   <div class="pointer">
-                     <p>Hey I was wondering if you wanted to go check out the football game later. I heard they are supposed to be really good!</p>
-                   </div>
-                   <div class="pointer-border"></div>
-                 </div>
-                 <p class="post-actions"><a href="#">Comment</a> - <a href="#">Like</a> - <a href="#">Follow</a> - <a href="#">Share</a></p>
-                 <div class="comment-form">
-                   <form class="form-inline">
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="enter comment">
-                    </div>
-                    <button type="submit" class="btn btn-default">Add</button>
-                  </form>
-                 </div>
-                 <div class="clearfix"></div>
+                   <% p.comments.order(updated_at: :desc).each do |c| %>
+                   <div class="comments">
+                     <div class="comment">
+                      <%= link_to '', class: "comment-avatar pull-left" do %>
+                        <%= image_tag(c.user.avatar.url(:thumb)) %>
+                      <% end %>
 
-                 <div class="comments">
-                   <div class="comment">
-                     <a href="#" class="comment-avatar pull-left"><img src="images/user.png" alt=""></a>
-                     <div class="comment-text">
-                       <p>I am just going to paste in a paragraph, then we will add another clearfix.</p>
+                       <div class="comment-text">
+                        <!-- owner -->
+                        <div class="pull-left properties">
+                         <%= c.user.name %>
+                        </div>
+
+                         <!-- owner -->
+                         <div class="pull-right properties">
+                          <%= time_ago_in_words(c.updated_at) %>
+                          <% if c.user == current_user %>
+                              <%= link_to comment_path(c.id), method: :delete, data: {confirm: t('messages.confirm')} do %>
+                                  <i class="fa fa-close"></i>
+                               <% end %>
+
+                              <%= link_to edit_comment_path(c.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#myModal'} do %>
+                                  <i class="fa fa-pencil"></i>
+                               <% end %>
+
+                          <% end %>
+                         </div>
+
+                         <div class="clearfix"></div>
+
+                         <p><%= c.content %></p>
+                       </div>
+
                      </div>
+                     <div class="clearfix"></div>
                    </div>
-                   <div class="clearfix"></div>
-                   <div class="comment">
-                     <a href="#" class="comment-avatar pull-left"><img src="images/user.png" alt=""></a>
-                     <div class="comment-text">
-                       <p>I am just going to paste in a paragraph, then we will add another clearfix.</p>
-                     </div>
-                   </div>
-                   <div class="clearfix"></div>
+                  <%= render partial: "shared/comment", locals: {p: p} %>
+                   <% end %>
                  </div>
                </div>
-             </div>
+               <br/>
+               <% end %>
+              <% end %>
+             <%= paginate @posts %>
           </div>
         </div>
       </div>
@@ -196,3 +138,5 @@
   </section>
 <% end %>
 
+
+<div id="edit-modal" class="modal fade" role="dialog"></div>

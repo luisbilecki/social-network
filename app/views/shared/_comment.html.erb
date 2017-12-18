@@ -1,0 +1,10 @@
+<div class="comment-form">
+ <%= form_tag comments_path, class: "form-inline" do%>
+   <div class="form-group">
+     <%= text_field :comment, :content, class:"form-control", placeholder:"Enter a comment" %>
+     <%= hidden_field :comment, :post_id, value: p.id %>
+     <%= hidden_field :comment, :user_id, value: current_user.id %>
+   </div>
+   <%= submit_tag "Add", class: "btn btn-default" %>
+ <% end %>
+</div>

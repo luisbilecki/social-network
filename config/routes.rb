@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/users/unfollow/:id', to: 'followers#unfollow', as: 'unfollow'
 
   resources :posts, except: [:show]
+  resources :comments, except: [:show]
   resources :users, only: [:update, :show]
 
   #Página inicial
