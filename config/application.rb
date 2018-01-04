@@ -16,5 +16,17 @@ module SocialNetwork
     # -- all .rb files in that directory are automatically loaded.
     require Rails.root.join("lib/custom_public_exceptions")
     config.exceptions_app = CustomPublicExceptions.new(Rails.public_path)
+
+    # Don't generate system test files.
+    config.generators.system_tests = nil
+
+    # Configuração usando rspec invés de minitest
+    config.generators do |g|
+      g.test_framework :rspec,
+        fixtures: false,
+        view_specs: false,
+        helper_specs: false,
+        routing_specs: false
+    end
   end
 end

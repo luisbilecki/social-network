@@ -37,6 +37,9 @@ gem 'jbuilder', '~> 2.5'
 #GEMS Social Network
 gem 'rails-i18n'
 
+#inputmask
+gem 'jquery-inputmask-rails', github: 'knapo/jquery-inputmask-rails'
+
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 
@@ -81,6 +84,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
+  gem "rspec-rails", '~> 3.6'
   gem 'selenium-webdriver'
 
   #Better error page for Rack apps

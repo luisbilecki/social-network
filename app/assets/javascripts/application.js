@@ -14,6 +14,11 @@
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require inputmask
+//= require jquery.inputmask
+//= require inputmask.extensions
+//= require inputmask.numeric.extensions
 //= require bootstrap
 //= require bootstrap.growl
 //= require bootbox
@@ -51,3 +56,4 @@ $.rails.allowAction = function(element) {
 
   return false;
 }
+
