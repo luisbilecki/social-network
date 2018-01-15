@@ -82,14 +82,27 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
-  gem "rspec-rails", '~> 3.6'
   gem 'selenium-webdriver'
 
   #Better error page for Rack apps
   gem "better_errors"
   gem "binding_of_caller"
+
+  #TDD
+  gem 'rspec-rails', '~> 3.6'
+  gem 'capybara'
+
+  gem 'factory_bot_rails', '~> 4.0'
+  gem 'faker'
+  gem 'httparty'
+  gem 'webmock'
+  gem 'vcr'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'rails-controller-testing'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
+  gem 'rspec-json_expectations'
+
 end
 
 group :development do
@@ -99,9 +112,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-
-  #A library for generating fake data such as names, addresses, and phone numbers.
-  gem 'faker'
 
   #DoctorIpsum
   gem 'doctor_ipsum'

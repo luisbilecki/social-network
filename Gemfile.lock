@@ -83,6 +83,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
+    database_cleaner (1.6.2)
     debug_inspector (0.0.3)
     devise (4.3.0)
       bcrypt (~> 3.0)
@@ -93,11 +94,17 @@ GEM
     devise-i18n (1.5.0)
       devise (>= 3.4)
     diff-lcs (1.3)
+    docile (1.1.5)
     doctor_ipsum (0.3.1)
       i18n
     dotenv (0.7.0)
     erubi (1.7.0)
     execjs (2.7.0)
+    factory_girl (4.9.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.9.0)
+      factory_girl (~> 4.9.0)
+      railties (>= 3.0.0)
     faker (1.8.5)
       i18n (~> 0.9.1)
     ffi (1.9.18)
@@ -121,6 +128,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
+    json (2.1.0)
     kaminari (1.1.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.1.1)
@@ -238,6 +246,13 @@ GEM
     selenium-webdriver (3.8.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
+    shoulda-matchers (3.1.2)
+      activesupport (>= 4.0.0)
+    simplecov (0.15.1)
+      docile (~> 1.1.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.2)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -282,12 +297,14 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   byebug
-  capybara (~> 2.13)
+  capybara
   carrierwave (~> 1.0)
   coffee-rails (~> 4.2)
+  database_cleaner
   devise
   devise-i18n
   doctor_ipsum
+  factory_girl_rails
   faker
   font-awesome-rails
   foreman
@@ -307,9 +324,11 @@ DEPENDENCIES
   rails-assets-bootstrap!
   rails-assets-bootstrap.growl!
   rails-i18n
-  rspec-rails (~> 3.6)
+  rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
+  shoulda-matchers
+  simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
