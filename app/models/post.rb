@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
 
   #Validations
-  validates :content, presence: true
+  validates :content, :user, presence: true
 
   #Acts as votable - gem
   acts_as_votable

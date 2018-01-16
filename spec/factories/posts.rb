@@ -1,6 +1,6 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :post do
     content { Faker::StarWars.quote }
-    association :user
+    user
   end
 end

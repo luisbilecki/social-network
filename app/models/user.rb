@@ -12,7 +12,8 @@ class User < ApplicationRecord
   has_many :posts
   has_many :following, :class_name => 'Follower', :foreign_key => 'current_id'
 
-  # User Avatar and Cover Validation
+  # User Avatar Validation
+  validates :avatar, presence: true
   validates_integrity_of  :avatar
   validates_processing_of :avatar
 
