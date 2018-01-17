@@ -2,7 +2,6 @@
 
 A simple social network app developed using Ruby on Rails 5.
 
-[Social Network in Heroku](https://morning-savannah-26622.herokuapp.com/)
 
 --------------
 
@@ -10,9 +9,9 @@ A simple social network app developed using Ruby on Rails 5.
 
 This application requires:
 
-* Ruby 2.3
+* Ruby 2.4
 * Rails 5.1.4
-* SQLite
+* PostgreSQL
 
 --------------
 ## How to run
