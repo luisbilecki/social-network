@@ -71,6 +71,9 @@ gem "font-awesome-rails"
 
 gem 'acts_as_votable', '~> 0.11.1'
 
+#PostgreSQL database
+gem 'pg', '~> 0.20'
+
 source 'https://rails-assets.org' do
   #Bootstrap notify
   gem 'rails-assets-bootstrap.growl'
@@ -120,12 +123,9 @@ group :development do
   #O Lero-lero Generator é uma ferramenta capaz de gerar frases que 'falam'
   # muita coisa mas que não tem conteúdo algum.
   gem 'lerolero_generator'
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
 end
 
 group :production do
-  gem 'pg', '~> 0.20'
   gem 'rails_12factor'
 end
 

@@ -1,15 +1,24 @@
+default: &default
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  encoding: unicode
+
 development:
-  adapter: sqlite3
-  database: db/development.sqlite3
+  <<: *default
+  host: localhost
+  database: social_network
+  username: social_network
+  password: 123456
 
 test:
-  adapter: sqlite3
-  database: db/test.sqlite3
+  <<: *default
+  host: localhost
+  database: social_network
+  username: social_network
+  password: 123456
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  <<: *default
   database: social_network
   username: social_network
   password: <%= ENV['SOCIAL_NETWORK_DATABASE_PASSWORD'] %>
