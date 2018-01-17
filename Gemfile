@@ -54,6 +54,8 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'kaminari-i18n'
 
+#Manage Procfile-based applications
+gem 'foreman'
 
 #Flexible authentication solution for Rails with Warden
 gem 'devise'
