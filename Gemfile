@@ -120,8 +120,6 @@ group :development do
   gem 'lerolero_generator'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
-  #Manage Procfile-based applications
-  gem 'foreman'
 end
 
 group :production do
