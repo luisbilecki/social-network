@@ -9,9 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', group: :development # Added development group.
-gem 'pg', group: :production # Added postgres and made it production only.
+
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
@@ -122,6 +120,12 @@ group :development do
   #O Lero-lero Generator é uma ferramenta capaz de gerar frases que 'falam'
   # muita coisa mas que não tem conteúdo algum.
   gem 'lerolero_generator'
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
