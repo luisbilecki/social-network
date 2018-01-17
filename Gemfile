@@ -54,8 +54,6 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'kaminari-i18n'
 
-#Manage Procfile-based applications
-gem 'foreman'
 
 #Flexible authentication solution for Rails with Warden
 gem 'devise'
@@ -122,6 +120,8 @@ group :development do
   gem 'lerolero_generator'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  #Manage Procfile-based applications
+  gem 'foreman'
 end
 
 group :production do
