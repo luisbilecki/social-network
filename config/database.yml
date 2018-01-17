@@ -10,6 +10,6 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: socialnetwork
-  username: socialnetwork
-  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+  database: social_network
+  username: social_network
+  password: <%= ENV['SOCIAL_NETWORK_DATABASE_PASSWORD'] %>
